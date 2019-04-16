@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="netflix-configuration" />
         <module name="netflix-discovery" />
+        <module name="netflix-configuration" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="netflix-configuration" target="1.8" />
-      <module name="netflix-discovery" target="1.8" />
+      <module name="netflix-discovery" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/msnetflix.iml" filepath="$PROJECT_DIR$/msnetflix.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflix-configuration/netflix-configuration.iml" filepath="$PROJECT_DIR$/netflix-configuration/netflix-configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" filepath="$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" filepath="$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" />
     </modules>
   </component>
 </project>
