@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/catalog-processing/catalog-processing.iml" filepath="$PROJECT_DIR$/catalog-processing/catalog-processing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/catalog-search-service/catalog-search-service.iml" filepath="$PROJECT_DIR$/catalog-search-service/catalog-search-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/catalog-service/catalog-service.iml" filepath="$PROJECT_DIR$/catalog-service/catalog-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/help-desk-service/help-desk-service.iml" filepath="$PROJECT_DIR$/help-desk-service/help-desk-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/msnetflix.iml" filepath="$PROJECT_DIR$/msnetflix.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflix-configuration/netflix-configuration.iml" filepath="$PROJECT_DIR$/netflix-configuration/netflix-configuration.iml" />
       <module fileurl="file://$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" filepath="$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" />
-      <module fileurl="file://$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" filepath="$PROJECT_DIR$/netflix-discovery/netflix-discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watch-list-service/watch-list-service.iml" filepath="$PROJECT_DIR$/watch-list-service/watch-list-service.iml" />
     </modules>
   </component>
 </project>
