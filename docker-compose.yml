@@ -12,5 +12,16 @@ services:
             - "1433:1433" 
         volumes:
             - db_data:/var/lib/data 
+    zkpr:
+        image: zookeeper
+        container_name: netflix-zkpr
+        restart: always
+        ports:
+            - "2181:2181"
+    kfk:
+        image: ches/kafka
+        container_name: netflix-kfk
+        environment:
+            - ZOOKEEPER_IP=netflix-zkpr
 volumes:
     db_data:
