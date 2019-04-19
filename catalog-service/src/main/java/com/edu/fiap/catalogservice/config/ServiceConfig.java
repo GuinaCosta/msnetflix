@@ -1,22 +1,15 @@
-package com.edu.fiap.catalogsearchservice;
+package com.edu.fiap.catalogservice.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-/**
- * Classe para obtenção dos parâmetros de configuração
- */
 @Component
 public class ServiceConfig {
 
     @Value("${eureka.client.serviceUrl}")
     private String eurekaClientServiceUrl;
 
-    /**
-     * Obtêm a URL do Service Discovery
-     * @return URL do serviço Eureka
-     */
-    public String getEurekaServiceUrl(){
+    public String getExampleProperty(){
         return eurekaClientServiceUrl;
     }
 }
