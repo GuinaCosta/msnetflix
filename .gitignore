@@ -5,6 +5,7 @@
 
 # Intellij
 .idea/libraries
+.idea/workspace.xml
 *.iml
 *.iws
 
