@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/catalog-processing" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/catalog-search-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/catalog-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/help-desk-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/netflix-configuration" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/netflix-discovery" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/watch-list-service" charset="UTF-8" />
   </component>
 </project>
