@@ -7,6 +7,9 @@ import com.edu.fiap.catalogsearchservice.repository.CatalogSearchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Classe de implementação da busca de catálogos
  *
@@ -22,11 +25,14 @@ public class CatalogSearchFacadeImpl implements CatalogSearchFacade {
     private CatalogSearchRepository catalogSearchRepository;
 
     /**
-     * @see CatalogSearchFacade#getCatalogByGenre(String)
+     * @see CatalogSearchFacade#getCatalogsByGenre(String)
      * */
     @Override
-    public CatalogResponse getCatalogByGenre(String genre) {
+    public List<CatalogResponse> getCatalogsByGenre(String genre) {
         CatalogDto catalogDto = catalogSearchRepository.getByGenre(genre);
-        return new CatalogResponse(catalogDto.getName(), 0);
+        List<CatalogResponse> lista = new ArrayList<>();
+        lista.add(new CatalogResponse(catalogDto.getName(), 0));
+
+        return lista;
     }
 }

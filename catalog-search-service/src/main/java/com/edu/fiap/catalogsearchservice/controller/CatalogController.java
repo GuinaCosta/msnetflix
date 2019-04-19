@@ -5,14 +5,18 @@ import com.edu.fiap.catalogsearchservice.model.response.CatalogResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Controller para gerenciar rotas de busca
  *
  * @author agnaldo.almeida
  * */
-@RestController("catalog/search")
+@RestController
+@RequestMapping("catalog/search")
 public class CatalogController {
 
     /**
@@ -29,8 +33,12 @@ public class CatalogController {
      * @return Lista de filmes com o gênero
      */
     @GetMapping("genre/{genre}")
-    public CatalogResponse getByGenre(@PathVariable(name="genre") String genre) {
+    public List<CatalogResponse> getByGenre(@PathVariable String genre) {
+        return catalogSearchFacade.getCatalogsByGenre(genre);
+    }
 
-       return catalogSearchFacade.getCatalogByGenre(genre);
+    @GetMapping("detail/{id}")
+    public CatalogResponse getDetail(@PathVariable Integer id) {
+        return new CatalogResponse();
     }
 }

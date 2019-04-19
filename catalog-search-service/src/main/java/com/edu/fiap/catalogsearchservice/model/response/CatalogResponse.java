@@ -38,4 +38,7 @@ public class CatalogResponse {
         this.name = name;
         this.id = id;
     }
+
+    public CatalogResponse() {
+    }
 }
