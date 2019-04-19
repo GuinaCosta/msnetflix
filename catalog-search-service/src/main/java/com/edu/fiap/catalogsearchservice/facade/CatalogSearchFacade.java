@@ -1,7 +1,11 @@
 package com.edu.fiap.catalogsearchservice.facade;
 
+import com.edu.fiap.catalogsearchservice.model.response.CatalogResponse;
+
 /**
  * Inteface para implementação da busca de catálogo
+ *
+ * @author agnaldo.almeida
  * */
 public interface CatalogSearchFacade {
 
@@ -12,5 +16,5 @@ public interface CatalogSearchFacade {
      *
      * @return Lista de filmes
      **/
-    public Object getCatalogByGenre(String genre);
+    public CatalogResponse getCatalogByGenre(String genre);
 }

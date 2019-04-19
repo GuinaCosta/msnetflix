@@ -1,7 +1,11 @@
 package com.edu.fiap.catalogsearchservice.repository;
 
+import com.edu.fiap.catalogsearchservice.model.dto.CatalogDto;
+
 /**
- * Interface para contrato de busca de catálog
+ * Interface para contrato de busca de catálogo
+ *
+ * @author agnaldo.almeida
  * */
 public interface CatalogSearchRepository {
 
@@ -12,5 +16,5 @@ public interface CatalogSearchRepository {
      *
      * @return retorna lista de catálogo obtida no banco
      **/
-    public Object getByGenre(String genre);
+    public CatalogDto getByGenre(String genre);
 }
