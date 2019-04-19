@@ -1,12 +1,16 @@
 package com.edu.fiap.catalogsearchservice.model.response;
 
 
+import java.io.Serializable;
+
 /**
  * Modelo de resposta de catálogo
  *
  * @author agnaldo.almeida
  **/
-public class CatalogResponse {
+public class CatalogResponse implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * nome do item do catálogo
