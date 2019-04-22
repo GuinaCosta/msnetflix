@@ -16,5 +16,5 @@ public interface CatalogSearchRepository {
      *
      * @return retorna lista de catálogo obtida no banco
      **/
-    public CatalogDto getByGenre(String genre);
+    CatalogDto getByGenre(String genre);
 }

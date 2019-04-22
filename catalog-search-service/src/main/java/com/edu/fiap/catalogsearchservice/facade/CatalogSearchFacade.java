@@ -18,5 +18,5 @@ public interface CatalogSearchFacade {
      *
      * @return Lista de filmes
      **/
-    public List<CatalogResponse> getCatalogsByGenre(String genre);
+    List<CatalogResponse> getCatalogsByGenre(String genre);
 }
