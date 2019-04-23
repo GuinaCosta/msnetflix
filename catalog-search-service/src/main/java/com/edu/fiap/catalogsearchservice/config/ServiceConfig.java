@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServiceConfig {
 
-    @Value("${eureka.client.serviceUrl}")
+    @Value("${eureka.client.serviceUrl.defaultZone}")
     private String eurekaClientServiceUrl;
 
     /**
