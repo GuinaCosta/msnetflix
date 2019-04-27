@@ -1,4 +1,4 @@
 package com.edu.fiap.catalogservice.facade;
 
-public class CatalogServiceFacade {
+public interface CatalogServiceFacade {
 }

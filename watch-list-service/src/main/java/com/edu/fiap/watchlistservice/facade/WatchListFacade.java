@@ -1,4 +1,4 @@
 package com.edu.fiap.watchlistservice.facade;
 
-public class WatchListFacade {
+public interface WatchListFacade {
 }
