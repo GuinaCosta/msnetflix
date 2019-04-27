@@ -35,8 +35,8 @@ public class SwaggerConfig {
      **/
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Catalog Search Service",
-                "API para busca de catálogo de filmes/séries",
+                "Catalog Service",
+                "API para gerenciamento catálogo de filmes/séries",
                 "API 1.0.0",
                 "Terms of service",
                 new Contact("Mauricio Romão", "www.fiap.com.br", "mauricio.romao@gmail.com"),
