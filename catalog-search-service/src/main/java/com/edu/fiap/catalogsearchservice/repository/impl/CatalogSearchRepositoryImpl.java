@@ -3,13 +3,14 @@ package com.edu.fiap.catalogsearchservice.repository.impl;
 import com.edu.fiap.catalogsearchservice.model.dto.CatalogDto;
 import com.edu.fiap.catalogsearchservice.repository.CatalogSearchRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Classe de implementação da busca de catálogos
  *
  * @author agnaldo.almeida
  * */
-@Component
+@Service
 public class CatalogSearchRepositoryImpl implements CatalogSearchRepository {
 
     /**

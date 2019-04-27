@@ -1,4 +1,23 @@
 package com.edu.fiap.catalogservice.repository;
 
-public interface CatalogServiceRepository {
+import com.edu.fiap.catalogservice.model.entity.CatalogEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
+
+/**
+ * Catalog service repository to create catalog item on database
+ *
+ * @author agnaldo.almeida
+ *
+ * @see org.springframework.data.repository.CrudRepository
+ * @see org.springframework.data.repository.CrudRepository
+ * */
+@Service
+public interface CatalogServiceRepository extends CrudRepository<CatalogEntity, Integer> {
+
+    /**
+     * finds catalog item by its name
+     **/
+    CatalogEntity findByName(String name);
+
 }

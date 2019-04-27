@@ -1,7 +1,7 @@
 package com.edu.fiap.catalogsearchservice.model.dto;
 
 /**
- * Classe de dto de catálogo
+ * Classe de entity de catálogo
  *
  * @author agnaldo.almeida
  **/
