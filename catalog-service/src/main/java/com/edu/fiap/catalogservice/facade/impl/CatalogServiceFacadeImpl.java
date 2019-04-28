@@ -71,4 +71,12 @@ public class CatalogServiceFacadeImpl implements CatalogServiceFacade {
 
         return catalogResponse;
     }
+
+    /**
+     * @see CatalogServiceFacade#deleteCatalog(Integer)
+     **/
+    @Override
+    public void deleteCatalog(Integer id) {
+        catalogServiceRepository.deleteById(id);
+    }
 }

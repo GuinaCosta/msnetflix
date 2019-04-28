@@ -31,4 +31,11 @@ public interface CatalogServiceFacade {
      * @return CatalogResponse item found
      **/
     CatalogResponse getCatalog(Integer id);
+
+    /**
+     * Deletes an item of catalog by its ID
+     * @param id id of the catalog item
+     * @return a code indicating success
+     */
+    void deleteCatalog(Integer id);
 }
