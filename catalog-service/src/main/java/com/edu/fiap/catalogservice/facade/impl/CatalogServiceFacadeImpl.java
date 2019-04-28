@@ -6,6 +6,7 @@ import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.model.response.CatalogResponse;
 import com.edu.fiap.catalogservice.repository.CatalogMessageRepository;
 import com.edu.fiap.catalogservice.repository.CatalogServiceRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
  * @see com.edu.fiap.catalogservice.facade.CatalogServiceFacade
  **/
 @Service
+@Slf4j
 public class CatalogServiceFacadeImpl implements CatalogServiceFacade {
 
     /**
@@ -45,10 +47,10 @@ public class CatalogServiceFacadeImpl implements CatalogServiceFacade {
         if (id > 0) {
             catalogRequest.setCatalogId(id);
             if (catalogMessageRepository.createCatalogMessage(catalogRequest)) {
-                System.out.println("Catalogo postado no kafka");
+                log.info("Catalogo postado no kafka");
             }
             else {
-                System.out.println("Catalogo criado, mas não postado no kafka");
+                log.warn("Catalogo criado, mas não postado no kafka");
             }
         }
 
