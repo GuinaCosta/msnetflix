@@ -23,6 +23,8 @@ services:
         container_name: netflix-kfk
         environment:
             - ZOOKEEPER_IP=netflix-zkpr
+        ports:
+            - "9092:9092"
     cache:
         image: redis
         container_name: netflix-redis
