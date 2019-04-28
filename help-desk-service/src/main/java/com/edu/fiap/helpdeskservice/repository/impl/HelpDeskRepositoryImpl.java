@@ -2,6 +2,7 @@ package com.edu.fiap.helpdeskservice.repository.impl;
 
 import com.edu.fiap.helpdeskservice.model.request.HelpDeskRequest;
 import com.edu.fiap.helpdeskservice.repository.HelpDeskRepository;
+import com.edu.fiap.helpdeskservice.repository.RepositoryConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,6 @@ public class HelpDeskRepositoryImpl implements HelpDeskRepository {
      **/
     @Override
     public void createTicket(HelpDeskRequest helpDeskRequest) {
-        kafkaTemplate.send("createTicket", helpDeskRequest);
+        kafkaTemplate.send(RepositoryConstants.HELPDESK_TOPIC_NAME, helpDeskRequest);
     }
 }
