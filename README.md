@@ -31,3 +31,4 @@ https://www.getpostman.com/collections/1828b50f1e312f8fc0ec
 #Swagger UI Endpoints
 * Catalog Search Service: http://localhost:8085/swagger-ui.html
 * Catalog Service: http://localhost:8086/swagger-ui.html
+* Helpdesk Service: http://localhost:8087/swagger-ui.html
