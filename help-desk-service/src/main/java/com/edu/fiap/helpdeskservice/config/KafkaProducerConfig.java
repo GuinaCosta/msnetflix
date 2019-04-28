@@ -25,6 +25,7 @@ public class KafkaProducerConfig {
 
     @Bean
     @ConditionalOnMissingBean(ProducerFactory.class)
+    @SuppressWarnings("Duplicates")
     public ProducerFactory<String, HelpDeskRequest> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
