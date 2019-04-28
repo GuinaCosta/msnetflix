@@ -25,4 +25,12 @@ public class HelpDeskRepositoryImpl implements HelpDeskRepository {
     public void createTicket(HelpDeskRequest helpDeskRequest) {
         kafkaTemplate.send(RepositoryConstants.HELPDESK_TOPIC_NAME, helpDeskRequest);
     }
+
+    @Override
+    public void saveTicket(HelpDeskRequest helpDeskRequest){
+
+    }
+
+
+
 }

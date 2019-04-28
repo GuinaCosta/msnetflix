@@ -11,7 +11,7 @@ public class HelpDeskDto {
     /**
      * ID do usuário que criou o chamado de Help Desk
      */
-    private Integer usuario_id;
+    private Integer usuarioId;
 
     /**
      * Data de criação do chamado
@@ -33,11 +33,11 @@ public class HelpDeskDto {
     private String solucao;
 
     public Integer getUsuarioId() {
-        return usuario_id;
+        return usuarioId;
     }
 
-    public void setUsuarioId(Integer usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuarioId(Integer usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public Date getDataCriacao() {

@@ -13,7 +13,7 @@ public class HelpDeskRequest implements Serializable {
     /**
      * ID do ususário
      */
-    private Integer usuario_id;
+    private Integer usuarioId;
 
     /**
      * Descrição do chamado de Help Desk
@@ -21,10 +21,10 @@ public class HelpDeskRequest implements Serializable {
     private String descricao;
 
     public Integer getUsuarioId(){
-        return usuario_id;
+        return usuarioId;
     }
-    public void setUsuarioId(Integer usuario_Id){
-        this.usuario_id = usuario_Id;
+    public void setUsuarioId(Integer usuarioId){
+        this.usuarioId = usuarioId;
     }
 
     public String getDescricao(){

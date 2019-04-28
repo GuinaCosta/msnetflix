@@ -12,4 +12,6 @@ public interface HelpDeskRepository {
      * Sends topics of HelpDesk to Kafka
      **/
     void createTicket(HelpDeskRequest helpDeskRequest);
+
+    void saveTicket(HelpDeskRequest helpDeskRequest);
 }
