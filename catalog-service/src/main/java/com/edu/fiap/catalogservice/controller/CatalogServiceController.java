@@ -4,6 +4,7 @@ import com.edu.fiap.catalogservice.facade.CatalogServiceFacade;
 import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.model.response.CatalogResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,5 +50,13 @@ public class CatalogServiceController {
     @GetMapping("/{id}")
     public CatalogResponse getCatalogsByName(@PathVariable Integer id) {
         return catalogServiceFacade.getCatalog(id);
+    }
+
+    /**
+     * deletes the catalog by its id
+     **/
+    @DeleteMapping("{id}")
+    public void deleteCatalog(@PathVariable Integer id) {
+        catalogServiceFacade.deleteCatalog(id);
     }
 }
