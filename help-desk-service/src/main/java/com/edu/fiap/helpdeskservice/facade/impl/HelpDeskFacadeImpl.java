@@ -2,7 +2,9 @@ package com.edu.fiap.helpdeskservice.facade.impl;
 
 import com.edu.fiap.helpdeskservice.facade.HelpDeskFacade;
 import com.edu.fiap.helpdeskservice.repository.HelpDeskRepository;
+import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import com.edu.fiap.helpdeskservice.model.request.HelpDeskRequest;
 
@@ -17,6 +19,7 @@ public class HelpDeskFacadeImpl implements HelpDeskFacade {
      **/
     @Autowired
     private HelpDeskRepository helpDeskRepository;
+
 
     /**
      * @see HelpDeskFacade#createTicket(HelpDeskRequest)

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: catalog-service
+    name: help-desk-service
   profiles:
     active:
       default

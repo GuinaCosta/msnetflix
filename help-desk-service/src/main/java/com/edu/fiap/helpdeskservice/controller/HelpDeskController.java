@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController()
 @RequestMapping("helpdesk")
 public class HelpDeskController {
 
     @Autowired
     private HelpDeskFacade helpDeskFacade;
 
-    @PostMapping
+    @PostMapping()
     public void createTicket(@NotNull @RequestBody HelpDeskRequest helpDeskRequest){
         helpDeskFacade.createTicket(helpDeskRequest);
     }

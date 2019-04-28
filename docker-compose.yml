@@ -23,6 +23,11 @@ services:
         container_name: netflix-kfk
         environment:
             - ZOOKEEPER_IP=netflix-zkpr
+            - KAFKA_ADVERTISED_LISTENERS=LISTENER_EXT://localhost:9092
+            - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_EXT:PLAINTEXT
+            - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+        depends_on:
+            - zkpr
         ports:
             - "9092:9092"
     cache:
