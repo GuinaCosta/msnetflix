@@ -4,6 +4,8 @@ import com.edu.fiap.catalogservice.facade.CatalogServiceFacade;
 import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.model.response.CatalogResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,24 +34,38 @@ public class CatalogServiceController {
      * @return the new catalog id
      **/
     @PostMapping()
-    public CatalogResponse createCatalog(@Valid @NotNull @RequestBody CatalogRequest catalogItemRequest) {
-        return catalogServiceFacade.saveCatalog(catalogItemRequest);
+    public ResponseEntity createCatalog(@Valid @NotNull @RequestBody CatalogRequest catalogItemRequest) {
+        return new ResponseEntity(catalogServiceFacade.saveCatalog(catalogItemRequest), HttpStatus.OK);
     }
 
     /**
      * Gets the catalog by its name
      **/
     @GetMapping(ControllerConstants.SERVICE_URL_BY_NAME + "/{name}")
-    public List<CatalogResponse> getCatalogsByName(@PathVariable String name) {
-        return catalogServiceFacade.getCatalogs(name);
+    public ResponseEntity getCatalogsByName(@PathVariable String name) {
+        List<CatalogResponse> catalogResponseList = catalogServiceFacade.getCatalogs(name);
+
+        if (catalogResponseList != null && catalogResponseList.size() > 0) {
+            return new ResponseEntity(catalogResponseList, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
     /**
      * Gets the catalog by its id
      **/
     @GetMapping("/{id}")
-    public CatalogResponse getCatalogsByName(@PathVariable Integer id) {
-        return catalogServiceFacade.getCatalog(id);
+    public ResponseEntity getCatalogsById(@PathVariable Integer id) {
+        CatalogResponse catalogResponse = catalogServiceFacade.getCatalog(id);
+
+        if (catalogResponse != null) {
+            return new ResponseEntity(catalogResponse, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 
     /**
