@@ -1,16 +1,16 @@
-package com.edu.fiap.catalogservice.repository;
+package com.edu.fiap.catalogservice.config;
 
 /**
  * Repository constants
  *
  * @author agnaldo.almeida
  */
-public class RepositoryConstants {
+public class GlobalConstants {
 
     /**
      * Illegal Constructor
      **/
-    private RepositoryConstants() {
+    private GlobalConstants() {
         throw new IllegalStateException();
     }
 

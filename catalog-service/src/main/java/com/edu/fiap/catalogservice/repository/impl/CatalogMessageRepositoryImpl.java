@@ -2,7 +2,7 @@ package com.edu.fiap.catalogservice.repository.impl;
 
 import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.repository.CatalogMessageRepository;
-import com.edu.fiap.catalogservice.repository.RepositoryConstants;
+import com.edu.fiap.catalogservice.config.GlobalConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.KafkaException;
@@ -30,7 +30,7 @@ public class CatalogMessageRepositoryImpl implements CatalogMessageRepository {
     @Override
     public boolean createCatalogMessage(CatalogRequest catalogRequest) {
         try {
-            kafkaTemplate.send(RepositoryConstants.CATALOG_TOPIC_NAME, catalogRequest);
+            kafkaTemplate.send(GlobalConstants.CATALOG_TOPIC_NAME, catalogRequest);
             return true;
         }
         catch (KafkaException ex) {
