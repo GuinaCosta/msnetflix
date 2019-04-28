@@ -13,23 +13,39 @@ services:
         volumes:
             - db_data:/var/lib/data 
     zkpr:
-        image: zookeeper
+        image: wurstmeister/zookeeper
         container_name: netflix-zkpr
+        hostname: netflix-zkpr
+        environment:
+            ZOOKEEPER_CLIENT_PORT: 2181
         restart: always
         ports:
             - "2181:2181"
     kfk:
-        image: ches/kafka
+        image: wurstmeister/kafka
+        command: [start-kafka.sh]
         container_name: netflix-kfk
+        hostname: netflix-kfk
         environment:
+<<<<<<< HEAD
             - ZOOKEEPER_IP=netflix-zkpr
             - KAFKA_ADVERTISED_LISTENERS=LISTENER_EXT://localhost:9092
             - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_EXT:PLAINTEXT
             - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
         depends_on:
             - zkpr
+=======
+            KAFKA_ADVERTISED_HOST_NAME: netflix-kfk # docker-machine ip
+            KAFKA_ZOOKEEPER_CONNECT: netflix-zkpr:2181
+            KAFKA_ADVERTISED_PORT: 9092
+            KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+            KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+            #KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://netflix-kfk:9092 # when running all in containers
+>>>>>>> 177167bb486d6a458f68dd9fe1e9339cd52fdb7a
         ports:
             - "9092:9092"
+        depends_on:
+            - "zkpr"
     cache:
         image: redis
         container_name: netflix-redis
