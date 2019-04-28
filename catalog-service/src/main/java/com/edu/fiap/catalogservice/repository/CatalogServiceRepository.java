@@ -4,6 +4,8 @@ import com.edu.fiap.catalogservice.model.entity.CatalogEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Catalog service repository to create catalog item on database
  *
@@ -18,6 +20,6 @@ public interface CatalogServiceRepository extends CrudRepository<CatalogEntity, 
     /**
      * finds catalog item by its name
      **/
-    CatalogEntity findByName(String name);
+    List<CatalogEntity> findByNameIgnoreCaseContaining(String name);
 
 }

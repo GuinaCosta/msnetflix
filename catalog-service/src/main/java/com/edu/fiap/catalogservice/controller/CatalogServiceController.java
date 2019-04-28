@@ -4,14 +4,19 @@ import com.edu.fiap.catalogservice.facade.CatalogServiceFacade;
 import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.model.response.CatalogResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
-@RestController(ControllerConstants.SERVICE_URL_PREFIX)
+@RestController()
+@RequestMapping(ControllerConstants.SERVICE_URL_PREFIX)
 public class CatalogServiceController {
 
     /**
@@ -21,10 +26,28 @@ public class CatalogServiceController {
     private CatalogServiceFacade catalogServiceFacade;
 
     /**
-     * Saves
+     * Saves the catalog item
+     * @param catalogItemRequest request object with catalog data
+     * @return the new catalog id
      **/
     @PostMapping()
-    public CatalogResponse create(@Valid @NotNull @RequestBody CatalogRequest catalogItemRequest) {
+    public CatalogResponse createCatalog(@Valid @NotNull @RequestBody CatalogRequest catalogItemRequest) {
         return catalogServiceFacade.saveCatalog(catalogItemRequest);
+    }
+
+    /**
+     * Gets the catalog by its name
+     **/
+    @GetMapping(ControllerConstants.SERVICE_URL_BY_NAME + "/{name}")
+    public List<CatalogResponse> getCatalogsByName(@PathVariable String name) {
+        return catalogServiceFacade.getCatalogs(name);
+    }
+
+    /**
+     * Gets the catalog by its id
+     **/
+    @GetMapping("/{id}")
+    public CatalogResponse getCatalogsByName(@PathVariable Integer id) {
+        return catalogServiceFacade.getCatalog(id);
     }
 }
