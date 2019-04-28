@@ -4,6 +4,7 @@ import com.edu.fiap.catalogservice.facade.CatalogServiceFacade;
 import com.edu.fiap.catalogservice.model.entity.CatalogEntity;
 import com.edu.fiap.catalogservice.model.request.CatalogRequest;
 import com.edu.fiap.catalogservice.model.response.CatalogResponse;
+import com.edu.fiap.catalogservice.repository.CatalogMessageRepository;
 import com.edu.fiap.catalogservice.repository.CatalogServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,17 @@ import java.util.stream.Collectors;
 @Service
 public class CatalogServiceFacadeImpl implements CatalogServiceFacade {
 
+    /**
+     * Catalog service CRUD repository
+     */
     @Autowired
     private CatalogServiceRepository catalogServiceRepository;
+
+    /**
+     * Catalog messaging repository
+     */
+    @Autowired
+    private CatalogMessageRepository catalogMessageRepository;
 
     /**
      * @see CatalogServiceFacade#saveCatalog(CatalogRequest)
@@ -32,7 +42,15 @@ public class CatalogServiceFacadeImpl implements CatalogServiceFacade {
 
         Integer id = catalogServiceRepository.save(catalogEntity).getCatalogId();
 
-        //TODO: implementar para postar detalhes no Kafka
+        if (id > 0) {
+            catalogRequest.setCatalogId(id);
+            if (catalogMessageRepository.createCatalogMessage(catalogRequest)) {
+                System.out.println("Catalogo postado no kafka");
+            }
+            else {
+                System.out.println("Catalogo criado, mas não postado no kafka");
+            }
+        }
 
         return new CatalogResponse(id);
     }

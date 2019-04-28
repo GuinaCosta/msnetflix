@@ -171,6 +171,7 @@ public class CatalogEntity {
      *
      * @see CatalogRequest
      * */
+    @SuppressWarnings("Duplicates")
     public static CatalogEntity createFromCatalogRequest(CatalogRequest catalogRequest) {
         CatalogEntity catalogEntity = new CatalogEntity();
 

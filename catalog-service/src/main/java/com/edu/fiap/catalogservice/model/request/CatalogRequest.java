@@ -1,5 +1,8 @@
 package com.edu.fiap.catalogservice.model.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -9,10 +12,17 @@ import java.util.List;
  *
  * @author agnaldo.almeida
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CatalogRequest implements Serializable {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
+
+    /**
+     * ID of the item
+     **/
+    private Integer catalogId;
 
     /**
      * name of the item
@@ -63,6 +73,14 @@ public class CatalogRequest implements Serializable {
      * genres of the item
      **/
     private List<String> genres;
+
+    public Integer getCatalogId() {
+        return catalogId;
+    }
+
+    public void setCatalogId(Integer catalogId) {
+        this.catalogId = catalogId;
+    }
 
     public String getName() {
         return name;
