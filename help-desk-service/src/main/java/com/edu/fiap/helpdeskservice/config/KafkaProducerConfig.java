@@ -11,6 +11,7 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class KafkaProducerConfig {
                 StringSerializer.class);
         configProps.put(
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                StringSerializer.class);
+                JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 

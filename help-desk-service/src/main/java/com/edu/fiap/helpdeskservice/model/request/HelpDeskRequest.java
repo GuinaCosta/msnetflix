@@ -1,9 +1,15 @@
 package com.edu.fiap.helpdeskservice.model.request;
 
+import java.io.Serializable;
+
 /**
  * Request para cadastro de registro de Help Desk
  */
-public class HelpDeskRequest {
+public class HelpDeskRequest implements Serializable {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+
     /**
      * ID do ususário
      */

@@ -16,7 +16,7 @@ public class HelpDeskController {
     @Autowired
     private HelpDeskFacade helpDeskFacade;
 
-    @PostMapping
+    @PostMapping()
     public void createTicket(@NotNull @RequestBody HelpDeskRequest helpDeskRequest){
         helpDeskFacade.createTicket(helpDeskRequest);
     }
