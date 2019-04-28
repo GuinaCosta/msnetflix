@@ -5,7 +5,6 @@ import com.edu.fiap.helpdeskservice.repository.HelpDeskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import com.edu.fiap.helpdeskservice.config.KafkaConfig;
 
 /**
  * @see com.edu.fiap.helpdeskservice.repository.HelpDeskRepository
@@ -16,7 +15,7 @@ public class HelpDeskRepositoryImpl implements HelpDeskRepository {
      * kafka template
      **/
     @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private KafkaTemplate<String, HelpDeskRequest> kafkaTemplate;
 
     /**
      * @see HelpDeskRepository#createTicket(HelpDeskRequest)

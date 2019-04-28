@@ -9,7 +9,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @RefreshScope
 @EnableEurekaClient
 public class HelpDeskServiceApplication {
+
 	public static void main(String[] args) {
 		SpringApplication.run(HelpDeskServiceApplication.class, args);
 	}
+
 }
