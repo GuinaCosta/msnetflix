@@ -13,11 +13,11 @@
 
 Deve ser apresentada os 4 containers abaixo com status UP: 
 ```
-CONTAINER ID        IMAGE                                        COMMAND                  CREATED             STATUS              PORTS                                        NAMES
-3fe8fb47023f        ches/kafka                                   "/start.sh"              17 minutes ago      Up 17 minutes       7203/tcp, 0.0.0.0:9092->9092/tcp             netflix-kfk
-f12100fc2e67        redis                                        "docker-entrypoint.s…"   18 hours ago        Up 17 minutes       0.0.0.0:6379->6379/tcp                       netflix-redis
-7e05aa1a8118        zookeeper                                    "/docker-entrypoint.…"   9 days ago          Up 17 minutes       2888/tcp, 0.0.0.0:2181->2181/tcp, 3888/tcp   netflix-zkpr
-b16ced77a5f1        mcr.microsoft.com/mssql/server:2017-latest   "/opt/mssql/bin/sqls…"   9 days ago          Up 17 minutes       0.0.0.0:1433->1433/tcp                       netflix-db
+CONTAINER ID        IMAGE                                        COMMAND                  CREATED             STATUS              PORTS                                                NAMES
+95b975eec1e2        wurstmeister/kafka                           "start-kafka.sh"         33 hours ago        Up About an hour    0.0.0.0:9092->9092/tcp                               netflix-kfk
+0bf8b5e37ec8        wurstmeister/zookeeper                       "/bin/sh -c '/usr/sb…"   34 hours ago        Up About an hour    22/tcp, 2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp   netflix-zkpr
+1904ac7bc293        mcr.microsoft.com/mssql/server:2017-latest   "/opt/mssql/bin/sqls…"   35 hours ago        Up About an hour    0.0.0.0:1433->1433/tcp                               netflix-db
+f2e9788809d5        redis                                        "docker-entrypoint.s…"   35 hours ago        Up About an hour    0.0.0.0:6379->6379/tcp                               netflix-redis
 ```
 
 #Postman Collection with requests
