@@ -37,8 +37,48 @@ public class CatalogController {
         return catalogSearchFacade.getCatalogsByGenre(genre);
     }
 
+    /**
+     * Buscar itens do católogo pelo gênero
+     *
+     * @param genre nome do gênero para ser buscado
+     *
+     * @return Lista de filmes com o gênero
+     */
+    @GetMapping("keyword/{keyword}")
+    public List<CatalogResponse> getByKeyword(@PathVariable String keyword) {
+
+        return null;
+    }
+
+    /**
+     * Buscar itens do católogo pelo gênero
+     *
+     * @param genre nome do gênero para ser buscado
+     *
+     * @return Lista de filmes com o gênero
+     */
+    @GetMapping("mostwatched/categoy/{category}")
+    public List<CatalogResponse> getMostWatchedByCategory(@PathVariable String category) {
+
+        return null;
+    }
+
+    /**
+     * Buscar itens do católogo pelo gênero
+     *
+     * @param genre nome do gênero para ser buscado
+     *
+     * @return Lista de filmes com o gênero
+     */
+    @GetMapping("mostwatched/genre/{genre}")
+    public List<CatalogResponse> getMostWatchedByGenre(@PathVariable String genre) {
+
+        return null;
+    }
+
     @GetMapping("detail/{id}")
     public CatalogResponse getDetail(@PathVariable Integer id) {
+
         return new CatalogResponse();
     }
 }
