@@ -1,10 +1,13 @@
 package com.edu.fiap.watchlistservice.model.entity;
 
+import org.springframework.data.redis.core.RedisHash;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Entity class of Catalogs
@@ -12,7 +15,8 @@ import javax.persistence.Id;
  * @author agnaldo.almeida
  **/
 @Entity(name = "tbCatalogoUsuario")
-public class WatchListItemEntity {
+@RedisHash("CatalogoUsuario")
+public class WatchListItemEntity implements Serializable {
 
     /**
      * ID of the item

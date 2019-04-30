@@ -14,7 +14,7 @@ import java.util.List;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class WatchItemRequest implements Serializable {
+public class WatchListItemRequest implements Serializable {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -96,7 +96,7 @@ public class WatchItemRequest implements Serializable {
      * @param avaliation
      * @param watched
      */
-    public WatchItemRequest(Integer watchlistListItemId, Integer catalogId, Integer userId, Integer avaliation, boolean watched) {
+    public WatchListItemRequest(Integer watchlistListItemId, Integer catalogId, Integer userId, Integer avaliation, boolean watched) {
         this.watchlistListItemId = watchlistListItemId;
         this.catalogId = catalogId;
         this.userId = userId;
@@ -107,6 +107,6 @@ public class WatchItemRequest implements Serializable {
     /**
      * Cto
      */
-    public WatchItemRequest() {
+    public WatchListItemRequest() {
     }
 }
