@@ -1,8 +1,10 @@
 package com.edu.fiap.catalogprocessing.event;
 
 import com.edu.fiap.catalogprocessing.config.GlobalConstants;
+import com.edu.fiap.catalogprocessing.facade.CatalogProcessingFacade;
 import com.edu.fiap.catalogprocessing.model.request.CatalogProcessingRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,12 @@ public class CatalogProcessingListener {
     private String consumerGroupId;
 
     /**
+     * processing facade
+     */
+    @Autowired
+    private CatalogProcessingFacade processingFacade;
+
+    /**
      * Process the creation of catalog item details
      * @param catalogProcessingRequest topic item got from kafka
      */
@@ -29,5 +37,11 @@ public class CatalogProcessingListener {
                     containerFactory = "kafkaListenerContainerFactory")
     public void catalogListener(CatalogProcessingRequest catalogProcessingRequest){
         log.info("Catalog from kafka: {}", catalogProcessingRequest.toString());
+        if (processingFacade.saveCatalogDetails(catalogProcessingRequest)) {
+            log.info("Details saved");
+        }
+        else {
+            log.warn("Details not saved");
+        }
     }
 }
