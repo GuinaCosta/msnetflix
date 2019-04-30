@@ -1,14 +1,11 @@
 package com.edu.fiap.helpdeskservice.facade.impl;
 
 import com.edu.fiap.helpdeskservice.facade.HelpDeskFacade;
-import com.edu.fiap.helpdeskservice.repository.HelpDeskRepository;
+import com.edu.fiap.helpdeskservice.repository.HelpDeskMessageRepository;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.beans.BeanMap;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
@@ -16,7 +13,6 @@ import com.edu.fiap.helpdeskservice.model.request.HelpDeskRequest;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Map;
 
 
 /**
@@ -29,7 +25,7 @@ public class HelpDeskFacadeImpl implements HelpDeskFacade {
      * Repository instance to access kafka
      **/
     @Autowired
-    private HelpDeskRepository helpDeskRepository;
+    private HelpDeskMessageRepository helpDeskRepository;
 
     /**
      * @see HelpDeskFacade#createTicket(HelpDeskRequest)
