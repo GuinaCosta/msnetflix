@@ -26,7 +26,7 @@ public class CatalogProcessingListener {
      * @param catalogProcessingRequest topic item got from kafka
      */
     @KafkaListener(topics = GlobalConstants.CATALOG_TOPIC_NAME,
-            containerFactory = "kafkaListenerContainerFactory")
+                    containerFactory = "kafkaListenerContainerFactory")
     public void catalogListener(CatalogProcessingRequest catalogProcessingRequest){
         log.info("Catalog from kafka: {}", catalogProcessingRequest.toString());
     }
