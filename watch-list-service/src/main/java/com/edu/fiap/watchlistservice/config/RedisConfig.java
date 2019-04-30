@@ -3,6 +3,7 @@ package com.edu.fiap.watchlistservice.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 /**
  * Redis Configuration Class
@@ -20,9 +21,11 @@ public class RedisConfig {
     }
 
     @Bean
-    public RedisTemplate<String, Object> redisTemplate() {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
+    public RedisTemplate<String, String> redisTemplate() {
+        RedisTemplate<String, String> template = new RedisTemplate<>();
+        template.setDefaultSerializer(new StringRedisSerializer());
         template.setConnectionFactory(jedisConnectionFactory());
+        template.setEnableTransactionSupport(true);
         return template;
     }
 }
