@@ -1,4 +1,6 @@
-**MSNetflix**
+# **MSNetflix**
+
+**Projeto também disponível no GitLab em https://gitlab.com/LFrigoDeSouza/msnetflix
 
 #Instruções para Criação de Ambiente
 
@@ -25,6 +27,7 @@ f2e9788809d5        redis                                        "docker-entrypo
 https://www.getpostman.com/collections/1828b50f1e312f8fc0ec
 
 #Rodando a Aplicação
+Executar no servidor de banco de dados o script em Scripts\Criacao DB.sql
 
 ...
 
@@ -32,8 +35,3 @@ https://www.getpostman.com/collections/1828b50f1e312f8fc0ec
 * Catalog Search Service: http://localhost:8085/swagger-ui.html
 * Catalog Service: http://localhost:8086/swagger-ui.html
 * Helpdesk Service: http://localhost:8087/swagger-ui.html
-* Watchlist Service: http://localhost:8088/swagger-ui.html
-
-#JAVADOC
-
-* Disponível em: \javadoc\index.html

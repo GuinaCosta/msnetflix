@@ -35,4 +35,20 @@ public class CatalogSearchFacadeImpl implements CatalogSearchFacade {
 
         return lista;
     }
+
+
+    public List<CatalogResponse> getMostWatchedByGenre(String genre){
+        return null;
+    }
+
+
+    public List<CatalogResponse> getMostWatchedByCategory(String category){
+        return null;
+    }
+
+
+    public List<CatalogResponse> getByKeyword(String keyword){
+        return null;
+    }
+
 }

@@ -58,8 +58,7 @@ public class CatalogController {
      */
     @GetMapping("keyword/{keyword}")
     public List<CatalogResponse> getByKeyword(@PathVariable String keyword) {
-
-        return null;
+        return catalogSearchFacade.getByKeyword(keyword);
     }
 
     /**
@@ -71,8 +70,7 @@ public class CatalogController {
      */
     @GetMapping("mostwatched/categoy/{category}")
     public List<CatalogResponse> getMostWatchedByCategory(@PathVariable String category) {
-
-        return null;
+        return catalogSearchFacade.getMostWatchedByCategory(category);
     }
 
     /**
@@ -84,10 +82,14 @@ public class CatalogController {
      */
     @GetMapping("mostwatched/genre/{genre}")
     public List<CatalogResponse> getMostWatchedByGenre(@PathVariable String genre) {
-
-        return null;
+        return catalogSearchFacade.getMostWatchedByGenre(genre);
     }
 
+    /**
+     * Retorna detalhes de um filme do catálogo pelo Id
+     * @param id Id do filme
+     * @return detalhes do filme
+     */
     @GetMapping("detail/{id}")
     public String getDetail(@PathVariable Integer id) {
         String eurekaServiceUrl =  serviceUrl("CATALOG-SERVICE") + "/catalog/{id}";
@@ -102,6 +104,11 @@ public class CatalogController {
         return new RestTemplate();
     }
 
+    /**
+     * Obtêm a URL de um serviço através do Eureka Server
+     * @param serviceName Nome do serviço
+     * @return URL do serviço
+     */
     private String serviceUrl(String serviceName) {
         InstanceInfo instance = discoveryClient.getNextServerFromEureka(serviceName, false);
         return "http://" + instance.getInstanceId().replace("localhost:", "");
