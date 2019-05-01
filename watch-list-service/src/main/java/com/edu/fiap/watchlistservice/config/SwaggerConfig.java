@@ -1,5 +1,6 @@
 package com.edu.fiap.watchlistservice.config;
 
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -24,23 +25,24 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
             .select()
             .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
+            .paths(Predicates.not(PathSelectors.regex("/error.*")))
             .build()
             .apiInfo(apiInfo())
             .useDefaultResponseMessages(false);
     }
 
     /**
-     * API informations
-     **/
+     * Api Info
+     * @return A new ApiInfo
+     */
     private ApiInfo apiInfo() {
         return new ApiInfo(
-                "Catalog Search Service",
-                "API para busca de catálogo de filmes/séries",
+                "Watchlist Service",
+                "API para gerenciamento da lista de títulos para assistir",
                 "API 1.0.0",
                 "Terms of service",
-                new Contact("Mauricio Romão", "www.fiap.com.br", "mauricio.romao@gmail.com"),
-                "License of API", "API license URL",
+                new Contact("Agnaldo Costa", "www.fiap.com.br", "guinacosta1991@gmail.com"),
+                "MIT", "https://gitlab.com/LFrigoDeSouza/msnetflix/blob/master/LICENSE",
                 Collections.emptyList());
     }
 }
