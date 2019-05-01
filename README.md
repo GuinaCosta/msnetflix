@@ -51,3 +51,4 @@ Na raiz do projeto instalar as dependências via Maven:
 Documentação de classes e métodos disponibilizadas em:
 
 `javadoc\index.html`
+
