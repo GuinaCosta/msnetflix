@@ -1,5 +1,6 @@
 package com.edu.fiap.watchlistservice.model.entity;
 
+import com.edu.fiap.watchlistservice.model.request.WatchListItemRequest;
 import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.Column;
@@ -15,7 +16,6 @@ import java.io.Serializable;
  * @author agnaldo.almeida
  **/
 @Entity(name = "tbCatalogoUsuario")
-@RedisHash("CatalogoUsuario")
 public class WatchListItemEntity implements Serializable {
 
     /**
@@ -108,5 +108,21 @@ public class WatchListItemEntity implements Serializable {
      * Cto
      */
     public WatchListItemEntity() {
+    }
+
+    /**
+     * Creates watchlist entity from request
+     * @param watchListItemRequest
+     * @return
+     */
+    public static WatchListItemEntity createFromWatchListRequest(WatchListItemRequest watchListItemRequest){
+         if (null != watchListItemRequest) {
+             return new WatchListItemEntity(watchListItemRequest.getCatalogId(),
+                     watchListItemRequest.getUserId(),
+                     watchListItemRequest.getAvaliation(),
+                     watchListItemRequest.isWatched());
+         }
+
+         return null;
     }
 }

@@ -9,7 +9,6 @@ import java.util.Optional;
  * Cache repository
  * @param <T> Object Type
  */
-@Repository
 public interface CacheRepository<T>{
     /**
      * Deletes an object in the cache from the input key.

@@ -1,11 +1,11 @@
 package com.edu.fiap.watchlistservice.repository.impl;
 
-import com.edu.fiap.watchlistservice.model.entity.WatchListItemEntity;
 import com.edu.fiap.watchlistservice.repository.CacheRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 
 import java.time.Duration;
@@ -14,6 +14,7 @@ import java.util.Optional;
 /**
  * @see com.edu.fiap.watchlistservice.repository.CacheRepository
  */
+@Repository
 public class CacheRepositoryImpl<T> implements CacheRepository<T> {
 
     /** The object mapper, convert object to json. */
