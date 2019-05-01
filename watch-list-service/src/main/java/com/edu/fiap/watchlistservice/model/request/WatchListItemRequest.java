@@ -20,11 +20,6 @@ public class WatchListItemRequest implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * ID of the item
-     **/
-    private Integer watchlistListItemId;
-
-    /**
      * catalog_Id
      **/
     private Integer catalogId;
@@ -46,14 +41,6 @@ public class WatchListItemRequest implements Serializable {
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
-    }
-
-    public Integer getWatchlistListItemId() {
-        return watchlistListItemId;
-    }
-
-    public void setWatchlistListItemId(Integer watchlistListItemId) {
-        this.watchlistListItemId = watchlistListItemId;
     }
 
     public Integer getCatalogId() {
@@ -90,14 +77,12 @@ public class WatchListItemRequest implements Serializable {
 
     /**
      * Cto
-     * @param watchlistListItemId
-     * @param catalogId
-     * @param userId
-     * @param avaliation
-     * @param watched
+     * @param catalogId catalog ID
+     * @param userId user id
+     * @param avaliation avaliation
+     * @param watched indicator if the title is watched
      */
-    public WatchListItemRequest(Integer watchlistListItemId, Integer catalogId, Integer userId, Integer avaliation, boolean watched) {
-        this.watchlistListItemId = watchlistListItemId;
+    public WatchListItemRequest(Integer catalogId, Integer userId, Integer avaliation, boolean watched) {
         this.catalogId = catalogId;
         this.userId = userId;
         this.avaliation = avaliation;

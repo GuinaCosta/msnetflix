@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -21,7 +22,8 @@ import java.util.List;
  * WatchList Controller
  * @author agnaldo.almeida
  */
-@RestController("watchlist")
+@RestController
+@RequestMapping(ControllerConstants.SERVICE_URL_PREFIX)
 public class WatchListController {
 
     /**
@@ -36,7 +38,7 @@ public class WatchListController {
      * @return ResponseEntity
      */
     @PostMapping()
-    public ResponseEntity createItem(@Valid @NotNull @RequestBody WatchListItemRequest watchItem) {
+    public ResponseEntity<Boolean> createItem(@Valid @NotNull @RequestBody WatchListItemRequest watchItem) {
 
         if (watchListFacade.addCatalogToWatchList(watchItem)) {
             return new ResponseEntity<>(true, HttpStatus.OK);
@@ -47,13 +49,11 @@ public class WatchListController {
 
     /**
      * Updated user avaliation for an item
-     * @param idUser
-     * @param watchItem
-     * @return
+     * @param watchItem watchItem
+     * @return ResponseEntity
      */
-    @PutMapping("{idUser}")
-    public ResponseEntity updateAvaliation(@PathVariable Integer idUser,
-                                           @RequestBody WatchListItemRequest watchItem) {
+    @PutMapping(ControllerConstants.SERVICE_URL_AVALIATION)
+    public ResponseEntity<Boolean> updateAvaliation(@RequestBody WatchListItemRequest watchItem) {
         if (watchListFacade.updateAvaliation(watchItem)) {
             return new ResponseEntity<>(true, HttpStatus.OK);
         }
@@ -64,11 +64,11 @@ public class WatchListController {
 
     /**
      * Mark catalog item as watched
-     * @param watchItem
-     * @return
+     * @param watchItem watchItem
+     * @return ResponseEntity
      */
-    @PutMapping("watched/{idUser}")
-    public ResponseEntity markItemAsWatched(@RequestBody WatchListItemRequest watchItem) {
+    @PutMapping(ControllerConstants.SERVICE_URL_WATCHED)
+    public ResponseEntity<Boolean> markItemAsWatched(@RequestBody WatchListItemRequest watchItem) {
 
         if (watchListFacade.markAsWatched(watchItem)) {
             return new ResponseEntity<>(true, HttpStatus.OK);
@@ -79,14 +79,15 @@ public class WatchListController {
 
     /**
      * Gets user watchlist
-     * @param idUser
-     * @return
+     * @param idUser id User
+     * @return ResponseEntity
      */
     @GetMapping("{idUser}")
-    public  ResponseEntity getUserWatchlist(@PathVariable Integer idUser) {
+    @SuppressWarnings("Duplicates")
+    public ResponseEntity<List<WatchListItemResponse>> getUserWatchlist(@PathVariable Integer idUser) {
 
         List<WatchListItemResponse> listItemResponseList = watchListFacade.getUserWatchList(idUser);
-        if (listItemResponseList != null) {
+        if (listItemResponseList != null && listItemResponseList.size() > 0) {
             return new ResponseEntity(listItemResponseList, HttpStatus.OK);
         }
         return new ResponseEntity(null, HttpStatus.NOT_FOUND);
@@ -95,14 +96,15 @@ public class WatchListController {
     /**
      * Gets wathed movies of the user
      * @param idUser user id
-     * @return
+     * @return ResponseEntity
      */
-    @GetMapping("watched/{idUser}")
-    public ResponseEntity getWatchedList(@PathVariable Integer idUser) {
+    @GetMapping(ControllerConstants.SERVICE_URL_WATCHED + "/{idUser}")
+    @SuppressWarnings("Duplicates")
+    public ResponseEntity<List<WatchListItemResponse>> getWatchedList(@PathVariable Integer idUser) {
 
         List<WatchListItemResponse> listItemResponseList = watchListFacade
                 .getUserWatchedOrNonWatched(true, idUser);
-        if (listItemResponseList != null) {
+        if (listItemResponseList != null && listItemResponseList.size() > 0) {
             return new ResponseEntity(listItemResponseList, HttpStatus.OK);
         }
         return new ResponseEntity(null, HttpStatus.NOT_FOUND);

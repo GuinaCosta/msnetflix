@@ -77,7 +77,7 @@ public class WatchListFacadeImpl implements WatchListFacade {
     public Integer updateCatalogRanking(Integer catalogId) {
         CatalogRankingEntity rankingEntity = rankingEntityRepository.findByCatalogId(catalogId);
 
-        if (null != rankingEntity) {
+        if (null == rankingEntity) {
             Optional<CatalogEntity> catalogEntity = catalogServiceRepository.findById(catalogId);
             if (catalogEntity.isPresent()) {
                 rankingEntity = new CatalogRankingEntity();
