@@ -52,7 +52,7 @@ public class CatalogController {
     /**
      * Buscar itens do católogo pelo gênero
      *
-     * @param genre nome do gênero para ser buscado
+     * @param keyword nome do gênero para ser buscado
      *
      * @return Lista de filmes com o gênero
      */
@@ -65,7 +65,7 @@ public class CatalogController {
     /**
      * Buscar itens do católogo pelo gênero
      *
-     * @param genre nome do gênero para ser buscado
+     * @param category nome do gênero para ser buscado
      *
      * @return Lista de filmes com o gênero
      */

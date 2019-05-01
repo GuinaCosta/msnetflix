@@ -33,8 +33,8 @@ public interface WatchListFacade {
 
     /**
      * Increases watch count of the catalog item
-     * @param catalogId catalog id
-     * @return total watched times
+     * @param watchListItemRequest watchListItemRequest
+     * @return updated or not
      */
     Boolean updateAvaliation(WatchListItemRequest watchListItemRequest);
 
